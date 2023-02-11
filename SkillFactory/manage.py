@@ -4,12 +4,6 @@ import os
 import sys
 
 
-favicon = os.getenv('FAVICON')
-
-cmd = "wget {0} -O static/polls/favicon.ico".format(favicon)
-
-os.system(cmd) 
-
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'SkillFactory.settings')
