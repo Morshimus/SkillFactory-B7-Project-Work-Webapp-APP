@@ -10,7 +10,20 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
+from configparser import NoSectionError as configparse_err
+from configparser import ConfigParser
 from pathlib import Path
+
+def get_db_config(db_option):
+ config = ConfigParser()
+
+ config.read('/app/django.conf')
+ try:
+     result = config.get("database", db_option)
+ except configparse_err:
+    print ('Cannot get {}. There is no such section or config file is unavailable/does not exist').format(db_option)
+    exit ()
+ return result
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
