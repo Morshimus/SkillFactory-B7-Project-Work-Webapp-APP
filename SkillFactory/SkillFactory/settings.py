@@ -86,12 +86,23 @@ WSGI_APPLICATION = 'SkillFactory.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+db_name     = get_db_config("db_name")
+db_user     = get_db_config("db_user")
+db_password = get_db_config("db_password")
+db_host     = get_db_config("db_host")
+db_port     = get_db_config("db_port")
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+   'default': {
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': db_name,
+       'USER': db_user,
+       'PASSWORD': db_password,
+       'HOST': db_host,
+       'PORT': db_port,
+   }
 }
+
 
 
 # Password validation
