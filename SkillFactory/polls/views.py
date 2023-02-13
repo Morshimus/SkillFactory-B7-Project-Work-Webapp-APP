@@ -16,7 +16,8 @@ def get_db_config(db_option):
 
 def index(request):
     template = loader.get_template('polls/index.html')
+    db_name = "database {0}".format(get_db_config("db_name"))
     context = {
-        'db_name': get_db_config('db_name'),
+        'db_name': db_name,
     }
     return HttpResponse(template.render())
