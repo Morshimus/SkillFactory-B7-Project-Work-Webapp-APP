@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.template import loader
-from configargparse import ConfigParser
+from configparser import ConfigParser
 from configparser import NoSectionError as configparse_err
 
 def get_db_config(db_option):
