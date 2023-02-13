@@ -20,4 +20,4 @@ def index(request):
     context = {
         'db_name': db_name,
     }
-    return HttpResponse(template.render())
+    return HttpResponse(template.render(context, request))
